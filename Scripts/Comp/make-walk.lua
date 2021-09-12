@@ -15,16 +15,7 @@ local function MakePlaylist(resolve)
 		return
 	end
 
-    for clipIndex in pairs(clips) do
-        local clip = clips[clipIndex]
-        local videoCodec = clip:GetClipProperty()["Video Codec"]
-        if videoCodec ~= "" then
-            if mediaPool:AppendToTimeline({clip}) then
-                print("Added clip \"" .. clip:GetName() ..
-                          "\" to current timeline.")
-            end
-        end
-    end
+    mediaPool:CreateTimelineFromClips("Walk", clips)
 end
 
 local function ApplyDRXToAllTimelineClips(timeline)
@@ -61,4 +52,6 @@ resolve = Resolve()
 MakePlaylist(resolve)
 
 ApplyDRXToAllTimelines(resolve)
+
+resolve:OpenPage("edit")
 
