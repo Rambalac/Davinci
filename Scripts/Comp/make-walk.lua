@@ -53,5 +53,9 @@ MakePlaylist(resolve)
 
 ApplyDRXToAllTimelines(resolve)
 
+-- Add transition
+-- Add Streo Width
+-- Normalize sound
+
 resolve:OpenPage("edit")
 
